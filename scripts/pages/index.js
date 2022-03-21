@@ -2,7 +2,6 @@ async function getPhotographers() {
   let data = await fetch("../../data/photographers.json", { mode: "no-cors" })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       return data;
     })
     .catch((error) => console.error(error));

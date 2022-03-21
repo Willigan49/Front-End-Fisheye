@@ -2,10 +2,62 @@
   display: none;
 }
 
+#lightbox {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: auto;
+  background-color: rgba(124, 124, 124, 0.705);
+  top: 0;
+  left: 0;
+}
+
+#lightbox .nav-box {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 2% auto;
+  padding: 4%;
+  border-radius: 10px;
+}
+
+#lightbox .img-content {
+  width: 750px;
+  height: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#lightbox i {
+  font-size: 50px;
+}
+
+#lightbox .cross {
+  position: absolute;
+  right: 55px;
+  top: 50px;
+}
+
 .photograph-header {
+  justify-content: space-between;
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+  padding: 0 50px;
+  align-items: center;
 }
 
 .contact_button {
@@ -49,9 +101,7 @@
 }
 
 form {
-  display: flex;
   width: 100%;
-  flex-direction: column;
   align-items: flex-start;
 }
 
@@ -60,9 +110,13 @@ form label {
   font-size: 36px;
 }
 
+form,
 form div {
   display: flex;
   flex-direction: column;
+}
+
+form div {
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
@@ -73,4 +127,92 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+.media_section,
+.media_section .legend,
+.media_section .like-counter,
+.photograph-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.media_section {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 90%;
+  gap: 50px 100px;
+  margin: 0 100px;
+}
+
+.media_section article {
+  max-width: 350px;
+}
+
+.thumbnail {
+  width: 350px;
+  height: 350px;
+}
+
+.media_section img,
+.media_section video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.media_section .legend {
+  justify-content: space-between;
+  font-size: 1.2em;
+}
+
+.media_section .like-counter {
+  align-items: center;
+  gap: 5px;
+}
+
+.sort {
+  margin: 30px 100px;
+}
+
+select {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 120px;
+  height: 50px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+select option {
+  border-bottom: white 1px solid;
+}
+
+#infos {
+  position: fixed;
+  bottom: 0;
+  left: 75%;
+  width: 200px;
+  height: 50px;
+  background-color: #d3573c;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#infos div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+video {
+  width: 100%;
 }
