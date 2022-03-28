@@ -33,6 +33,7 @@ function photographerFactory(data) {
   function getUserInfoCardDOM() {
     const article = document.createElement("article");
     const h2 = document.createElement("h2");
+    h2.setAttribute("id", "photographer-name");
     h2.textContent = name;
     const locationText = document.createElement("p");
     locationText.classList.add("location");

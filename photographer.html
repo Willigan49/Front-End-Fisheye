@@ -37,20 +37,29 @@
         </div>
         <div class="media_section"></div>
       </main>
-      <div id="lightbox"></div>
+      <div id="lightbox" role="dialog" aria-label="image closeup view"></div>
       <div id="infos"></div>
       <div id="contact_modal">
         <div class="modal">
           <header>
             <h2>Contactez-moi</h2>
+            <h2 class="photographer-name"></h2>
             <img src="assets/icons/close.svg" onclick="closeModal()" />
           </header>
           <form>
             <div>
               <label>Prénom</label>
-              <input />
+              <input type="text" class="first-name" />
+              <label>Nom</label>
+              <input type="text" class="last-name" />
+              <label>Email</label>
+              <input type="text" class="email" />
+              <label>Votre message</label>
+              <input type="textarea" class="message" />
             </div>
-            <button class="contact_button">Envoyer</button>
+            <button type="button" class="contact_button" onclick="getValues()">
+              Envoyer
+            </button>
           </form>
         </div>
       </div>
