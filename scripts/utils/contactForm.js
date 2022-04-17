@@ -4,7 +4,10 @@ function displayModal() {
   const photographerName =
     document.getElementById("photographer-name").textContent;
   const fieldName = document.querySelector(".photographer-name");
-  fieldName.innerHTML = photographerName;
+  fieldName.innerHTML = "";
+  const name = document.createElement("h2");
+  name.innerHTML = photographerName;
+  fieldName.appendChild(name);
 }
 
 function getValues() {
