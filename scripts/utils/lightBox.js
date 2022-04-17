@@ -5,6 +5,8 @@ function createLightBox(medias, id, path, image, video, title) {
   const crossIcon = document.createElement("i");
   crossIcon.setAttribute("class", "fa-solid fa-xmark cross");
   crossIcon.setAttribute("tabIndex", "6");
+  crossIcon.setAttribute("aria-label", "close modal");
+  crossIcon.setAttribute("role", "button");
   crossIcon.addEventListener("click", () => closeLightBox());
   const navBox = document.createElement("div");
   navBox.setAttribute("class", "nav-box");
@@ -12,6 +14,8 @@ function createLightBox(medias, id, path, image, video, title) {
   const leftArrow = document.createElement("i");
   leftArrow.setAttribute("class", "fa-solid fa-angle-left left");
   leftArrow.setAttribute("tabIndex", "4");
+  leftArrow.setAttribute("aria-label", "média précédent");
+  leftArrow.setAttribute("role", "link");
   leftArrow.addEventListener("click", () => previousMedia(medias, id));
   const imgContent = document.createElement("div");
   imgContent.setAttribute("class", "img-content");
@@ -21,6 +25,8 @@ function createLightBox(medias, id, path, image, video, title) {
   const rightArrow = document.createElement("i");
   rightArrow.setAttribute("class", "fa-solid fa-angle-right right");
   rightArrow.setAttribute("tabIndex", "5");
+  rightArrow.setAttribute("aria-label", "média suivant");
+  rightArrow.setAttribute("role", "link");
   rightArrow.addEventListener("click", () => nextMedia(medias, id));
   window.addEventListener(
     "keydown",
