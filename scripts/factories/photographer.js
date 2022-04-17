@@ -6,12 +6,17 @@ function photographerFactory(data) {
 
   function getUserCardDOM() {
     const article = document.createElement("article");
+    article.setAttribute("tabindex", "-1");
     const link = document.createElement("a");
     link.setAttribute("href", photographerPage);
+    link.setAttribute("tabindex", "0");
     const img = document.createElement("img");
     img.setAttribute("src", picture);
     const h2 = document.createElement("h2");
     h2.textContent = name;
+    const div = document.createElement("div");
+    div.setAttribute("tabindex", "0");
+    div.setAttribute("class", "photographer_info");
     const locationText = document.createElement("p");
     locationText.classList.add("location");
     locationText.textContent = city + ", " + country;
@@ -24,9 +29,10 @@ function photographerFactory(data) {
     article.appendChild(link);
     link.appendChild(img);
     link.appendChild(h2);
-    article.appendChild(locationText);
-    article.appendChild(taglineText);
-    article.appendChild(priceText);
+    div.appendChild(locationText);
+    div.appendChild(taglineText);
+    div.appendChild(priceText);
+    article.appendChild(div);
     return article;
   }
 
@@ -34,7 +40,10 @@ function photographerFactory(data) {
     const article = document.createElement("article");
     const h2 = document.createElement("h2");
     h2.setAttribute("id", "photographer-name");
+    h2.setAttribute("tabindex", "0");
     h2.textContent = name;
+    const divInfo = document.createElement("div");
+    divInfo.setAttribute("tabindex", "0");
     const locationText = document.createElement("p");
     locationText.classList.add("location");
     locationText.textContent = city + ", " + country;
@@ -42,8 +51,9 @@ function photographerFactory(data) {
     taglineText.classList.add("tagline");
     taglineText.textContent = tagline;
     article.appendChild(h2);
-    article.appendChild(locationText);
-    article.appendChild(taglineText);
+    divInfo.appendChild(locationText);
+    divInfo.appendChild(taglineText);
+    article.appendChild(divInfo);
     return article;
   }
 
@@ -51,6 +61,7 @@ function photographerFactory(data) {
     const article = document.createElement("article");
     const img = document.createElement("img");
     img.setAttribute("src", picture);
+    img.setAttribute("tabindex", "0");
     article.appendChild(img);
     return article;
   }

@@ -1,4 +1,4 @@
-async function getData(id) {
+async function getData() {
   let data = await fetch("../../data/photographers.json", { mode: "no-cors" })
     .then((response) => response.json())
     .then((data) => {

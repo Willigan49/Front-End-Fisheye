@@ -10,6 +10,7 @@ module.exports = {
   },
   rules: {
     "no-unused-vars": "off",
+    "no-undef": "off",
     semi: ["error", "always"],
     quotes: ["error", "double"],
   },

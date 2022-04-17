@@ -1,12 +1,5 @@
 function mediaFactory(data, medias) {
-  let { id, title, image, likes, date, price, photographerId, video } = data;
-  let path = "";
-
-  if (image) {
-    path = `assets/images/${photographerId}/${image}`;
-  } else {
-    path = `assets/images/${photographerId}/${video}`;
-  }
+  let { id, title, image, likes, photographerId, video } = data;
 
   function getMediaDOM() {
     const article = document.createElement("article");
@@ -14,31 +7,31 @@ function mediaFactory(data, medias) {
     thumbnail.setAttribute("class", "thumbnail");
     article.appendChild(thumbnail);
     if (image) {
-      const img = document.createElement("img");
-      img.setAttribute("src", path);
-      img.addEventListener("click", () =>
-        displayLightBox(
-          medias,
-          medias.findIndex((m) => m.id == id),
-          path,
-          image
-        )
+      let img = imageFactory(
+        photographerId,
+        image,
+        medias,
+        title,
+        id,
+        displayLightBox
       );
+      img.setAttribute("tabindex", "0");
       thumbnail.appendChild(img);
     } else {
-      const vid = document.createElement("video");
-      vid.setAttribute("src", path);
-      thumbnail.appendChild(vid);
-      vid.addEventListener("click", () =>
-        displayLightBox(
-          medias,
-          medias.findIndex((m) => m.id == id),
-          path
-        )
+      let vid = videoFactory(
+        photographerId,
+        video,
+        medias,
+        title,
+        id,
+        displayLightBox
       );
+      vid.setAttribute("tabindex", "0");
+      thumbnail.appendChild(vid);
     }
     const likeNumber = document.createElement("p");
     likeNumber.textContent = likes;
+    likeNumber.setAttribute("tabindex", "0");
     const heart = document.createElement("i");
     heart.setAttribute("class", "fa-solid fa-heart");
     heart.onclick = () => {
@@ -53,6 +46,8 @@ function mediaFactory(data, medias) {
     likeCounter.appendChild(heart);
     const photoTitle = document.createElement("p");
     photoTitle.textContent = title;
+    photoTitle.setAttribute("tabindex", "0");
+    photoTitle.setAttribute("class", "photo-title");
     const legend = document.createElement("div");
     legend.setAttribute("class", "legend");
     legend.appendChild(photoTitle);

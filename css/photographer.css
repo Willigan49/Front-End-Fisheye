@@ -11,6 +11,7 @@
 }
 
 .modal {
+  margin-top: 10px;
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
@@ -20,6 +21,7 @@
   justify-content: space-between;
   padding: 35px;
   margin: auto;
+  position: relative;
 }
 
 .modal header {
@@ -27,19 +29,23 @@
   width: 100%;
 }
 
-.modal header img {
+.modal img {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
 }
 
 .modal header h2 {
   font-size: 64px;
   font-weight: normal;
-  text-align: center;
+  color: black;
 }
 
 form {
   width: 100%;
   align-items: flex-start;
+  margin-top: 50px;
 }
 
 form label {
@@ -95,9 +101,6 @@ form input {
 #lightbox .img-content {
   width: 750px;
   height: 750px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #lightbox img {
@@ -114,6 +117,7 @@ form input {
   position: absolute;
   right: 55px;
   top: 50px;
+  cursor: pointer;
 }
 
 .photograph-header {
