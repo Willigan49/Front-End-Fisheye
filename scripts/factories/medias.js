@@ -2,6 +2,12 @@ function mediaFactory(data, medias) {
   let { id, title, image, likes, photographerId, video } = data;
 
   function getMediaDOM() {
+    function incrementLike() {
+      likes++;
+      likeNumber.textContent = likes;
+      const counter = document.querySelector(".counter");
+      counter.innerHTML = parseInt(counter.innerHTML) + 1;
+    }
     const article = document.createElement("article");
     const thumbnail = document.createElement("div");
     thumbnail.setAttribute("class", "thumbnail");
@@ -34,11 +40,14 @@ function mediaFactory(data, medias) {
     likeNumber.setAttribute("tabindex", "0");
     const heart = document.createElement("i");
     heart.setAttribute("class", "fa-solid fa-heart");
+    heart.setAttribute("tabindex", "0");
+    heart.addEventListener("keydown", (e) => {
+      if (e.key == "Enter") {
+        incrementLike();
+      }
+    });
     heart.onclick = () => {
-      likes++;
-      likeNumber.textContent = likes;
-      const counter = document.querySelector(".counter");
-      counter.innerHTML = parseInt(counter.innerHTML) + 1;
+      incrementLike();
     };
     const likeCounter = document.createElement("div");
     likeCounter.setAttribute("class", "like-counter");

@@ -8,6 +8,17 @@ function displayModal() {
   const name = document.createElement("h2");
   name.innerHTML = photographerName;
   fieldName.appendChild(name);
+  const cross = document.querySelector(".cross-contact");
+  cross.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
+      closeModal();
+    }
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key == "Escape") {
+      closeModal();
+    }
+  });
 }
 
 function getValues() {

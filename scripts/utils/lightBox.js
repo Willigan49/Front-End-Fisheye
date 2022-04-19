@@ -8,6 +8,11 @@ function createLightBox(medias, id, path, image, video, title) {
   crossIcon.setAttribute("aria-label", "close modal");
   crossIcon.setAttribute("role", "button");
   crossIcon.addEventListener("click", () => closeLightBox());
+  crossIcon.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
+      closeLightBox();
+    }
+  });
   const navBox = document.createElement("div");
   navBox.setAttribute("class", "nav-box");
   navBox.setAttribute("tabindex", "1");
@@ -17,6 +22,11 @@ function createLightBox(medias, id, path, image, video, title) {
   leftArrow.setAttribute("aria-label", "média précédent");
   leftArrow.setAttribute("role", "link");
   leftArrow.addEventListener("click", () => previousMedia(medias, id));
+  leftArrow.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
+      previousMedia(medias, id);
+    }
+  });
   const imgContent = document.createElement("div");
   imgContent.setAttribute("class", "img-content");
   const photoTitle = document.createElement("p");
@@ -28,6 +38,11 @@ function createLightBox(medias, id, path, image, video, title) {
   rightArrow.setAttribute("aria-label", "média suivant");
   rightArrow.setAttribute("role", "link");
   rightArrow.addEventListener("click", () => nextMedia(medias, id));
+  rightArrow.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
+      nextMedia(medias, id);
+    }
+  });
   window.addEventListener(
     "keydown",
     (e) => {
@@ -53,6 +68,7 @@ function createLightBox(medias, id, path, image, video, title) {
   navBox.appendChild(imgContent);
   if (image) {
     let img = document.createElement("img");
+    img.setAttribute("alt", title);
     img.setAttribute("src", path);
     img.setAttribute("tabIndex", "1");
     imgContent.appendChild(img);
@@ -60,6 +76,7 @@ function createLightBox(medias, id, path, image, video, title) {
   } else {
     let video = document.createElement("video");
     video.setAttribute("src", path);
+    video.setAttribute("alt", title);
     video.setAttribute("controls", "");
     video.setAttribute("tabIndex", "2");
     imgContent.appendChild(video);

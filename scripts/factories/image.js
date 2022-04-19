@@ -3,6 +3,7 @@ function imageFactory(photographerId, image, medias, title, id, onClick) {
   const img = document.createElement("img");
   const titleImage = title;
   img.setAttribute("src", path);
+  img.setAttribute("alt", title);
   img.addEventListener("click", () =>
     onClick(
       medias,

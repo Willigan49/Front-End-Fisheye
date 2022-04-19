@@ -2,6 +2,7 @@ function videoFactory(photographerId, video, medias, title, id, onClick) {
   let path = `assets/images/${photographerId}/${video}`;
   const vid = document.createElement("video");
   vid.setAttribute("src", path);
+  vid.setAttribute("alt", title);
   vid.addEventListener("click", () =>
     onClick(
       medias,
